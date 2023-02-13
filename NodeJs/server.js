@@ -28,6 +28,13 @@ const productApp=require("./routes/products.routes")
 app.use("/products",productApp)
 
 
+
+
+// //Stoping server
+// app.get("/stopServer",()=>{
+//     app.exit()
+// })
+
 // Working with common Middlewares 
 
 //Handle invalid path   it should be at last of file

@@ -63,9 +63,9 @@ const modifyProduct=(req,res)=>{
 
 //delete product from products
 const deleteProduct=(req,res)=>{
-    let productIdfromUrl=req.params.id
+    let productIdfromUrl=(+req.params.id)
     console.log(productIdfromUrl)
-    let indexOfProduct=products.findIndex((productObject)=>productObject.productId==productIdfromUrl)
+    let indexOfProduct=products.findIndex((productObject)=>productObject.productId===productIdfromUrl)
     if(indexOfProduct==-1)
     {
         res.send({message:"Product not found to delete"})

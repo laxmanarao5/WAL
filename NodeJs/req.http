@@ -63,6 +63,11 @@ DELETE http://localhost/user/delete/s170116@gmail.com
 # Working on Products
 
 ###
+
+#get all products
+GET http://localhost/stopServer
+###
+
 #get all products
 GET http://localhost/products/products
 
