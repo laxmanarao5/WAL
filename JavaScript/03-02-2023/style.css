@@ -1,0 +1,38 @@
+body
+{
+    background-color: rgb(206, 108, 124);
+}
+.container
+{
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+.btn1
+{
+    background-color: blue;
+    border: none;
+    border-radius: 2px;
+    color: white;
+    height: 25px;
+    width: 70px;
+}
+.card
+{
+    width: 230px;
+    height: 320px;
+    padding-top: 30px;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+}
+.image
+{
+    border-radius: 80px;
+    height: 150px;
+    width: 150px;
+}
+.space
+{
+    width: 50px;
+}

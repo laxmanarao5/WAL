@@ -1,0 +1,87 @@
+body{
+    background-color: #FFE6F1;
+}
+.container
+{
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+
+}
+.login
+{
+    padding-top: 50px;
+    justify-content: center;
+    height: 500px;
+    width: 400px;
+    background-color: white;
+    border-radius: 10px 0px 0px 10px;
+}
+.fb
+{
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    padding-left: 120px;
+}
+.twitter
+{
+    padding-left: 20px;
+    height: 50px;
+    width: 50px;
+
+}
+.content
+{
+    height: 500px;
+    padding-top: 50px;
+    width: 400px;
+    background-color: #FF235A;
+    border-radius: 0px 10px 10px 0px;
+}
+.btn
+{
+    background-color: #FF6040;
+    position: relative;
+    left: 140px;
+    width: 100px;
+    height: 25px;
+    border: none;
+    border-radius: 20px;
+}
+.inp
+{
+    padding-top: 20px;
+    position: relative;
+    left: 100px;
+}
+input
+{
+    width: 200px;
+    height: 30px;
+    background-color: #C8D3E6;
+    border: none;
+}
+.gap
+{
+    height: 10px;
+}
+.content-head
+{
+    font-size: 1.5rem;
+}
+.heading-login
+{
+    padding-left: 150px;
+    font-size: 2rem;
+}
+.plain-text
+{
+    padding-left: 120px;
+    font-size: 1.2rem;
+}
+.content-head
+{
+    font-family: Serif;
+    
+}

@@ -1,0 +1,696 @@
+
+laxma@LAXMAN MINGW64 ~
+$ ver
+bash: ver: command not found
+
+laxma@LAXMAN MINGW64 ~
+$ git -ver
+unknown option: -ver
+usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           [--super-prefix=<path>] [--config-env=<name>=<envvar>]
+           <command> [<args>]
+
+laxma@LAXMAN MINGW64 ~
+$ git -v
+git version 2.39.1.windows.1
+
+laxma@LAXMAN MINGW64 ~
+$ git config --global user.name "laxman"
+
+laxma@LAXMAN MINGW64 ~
+$ git config --global user.email "lakshmana5296@gmail.com"
+
+laxma@LAXMAN MINGW64 ~
+$ git config --global user.email
+lakshmana5296@gmail.com
+
+laxma@LAXMAN MINGW64 ~
+$ git config --global user.name
+laxman
+
+laxma@LAXMAN MINGW64 ~
+$ cd Desktop
+bash: cd: Desktop: No such file or directory
+
+laxma@LAXMAN MINGW64 ~
+$ d:
+bash: d:: command not found
+
+laxma@LAXMAN MINGW64 ~
+$ cd documents
+
+laxma@LAXMAN MINGW64 ~/documents (master)
+$ cd git-demo
+bash: cd: git-demo: No such file or directory
+
+laxma@LAXMAN MINGW64 ~/documents (master)
+$ git init
+Reinitialized existing Git repository in C:/Users/laxma/Documents/.git/
+
+laxma@LAXMAN MINGW64 ~/documents (master)
+$ cd..
+bash: cd..: command not found
+
+laxma@LAXMAN MINGW64 ~/documents (master)
+$ cd ..
+
+laxma@LAXMAN MINGW64 ~
+$ cd onedrive
+
+laxma@LAXMAN MINGW64 ~/onedrive
+$ cd documents
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents
+$ cd git-demo
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo
+$ git init
+Initialized empty Git repository in C:/Users/laxma/OneDrive/Documents/git-demo/.git/
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git add index.html'
+>
+> git add index.html'
+fatal: pathspec 'index.html
+
+git add index.html' did not match any files
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git add "index.html"
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git add .
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   index.html
+        new file:   style.css
+
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git commit -m "Adding files for first time"
+[master (root-commit) 295e28b] Adding files for first time
+ 2 files changed, 13 insertions(+)
+ create mode 100644 index.html
+ create mode 100644 style.css
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git add .
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git commit -m "v2"
+[master 28d45c3] v2
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git add .
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git commit -m "v3"
+[master 9bdce85] v3
+ 1 file changed, 4 insertions(+)
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git log
+commit 9bdce855f2a016078ffd5e5383c156b516598437 (HEAD -> master)
+Author: laxman <lakshmana5296@gmail.com>
+Date:   Thu Feb 2 12:38:17 2023 +0530
+
+    v3
+
+commit 28d45c3e011d0c8601ef73876ec868afa350ab93
+Author: laxman <lakshmana5296@gmail.com>
+Date:   Thu Feb 2 12:36:02 2023 +0530
+
+    v2
+
+commit 295e28bf739d27f3e4a1664c0cc29ac3be1c5bfb
+Author: laxman <lakshmana5296@gmail.com>
+Date:   Thu Feb 2 12:34:07 2023 +0530
+
+    Adding files for first time
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ ^C
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$git log --oneline
+9bdce85 (HEAD -> master) v3
+28d45c3 v2
+295e28b Adding files for first time
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git checkout 9bdce
+Note: switching to '9bdce'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 9bdce85 v3
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo ((9bdce85...))
+$ git log --oneline
+9bdce85 (HEAD, master) v3
+28d45c3 v2
+295e28b Adding files for first time
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo ((9bdce85...))
+$ git checkout 295e
+Previous HEAD position was 9bdce85 v3
+HEAD is now at 295e28b Adding files for first time
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo ((295e28b...))
+$ git checkout 9bdce
+Previous HEAD position was 295e28b Adding files for first time
+HEAD is now at 9bdce85 v3
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo ((9bdce85...))
+$ git checkout 295e
+Previous HEAD position was 9bdce85 v3
+HEAD is now at 295e28b Adding files for first time
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo ((295e28b...))
+$ git checkout 9bdce
+Previous HEAD position was 295e28b Adding files for first time
+HEAD is now at 9bdce85 v3
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo ((9bdce85...))
+$ git commit -m "v4"
+HEAD detached at 9bdce85
+nothing to commit, working tree clean
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo ((9bdce85...))
+$ git commit -m "v4"
+HEAD detached at 9bdce85
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo ((9bdce85...))
+$ git add .
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo ((9bdce85...))
+$ git commit -m "v4"
+[detached HEAD 543f392] v4
+ 1 file changed, 1 insertion(+)
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo ((543f392...))
+$ git checkout 9bdce
+Warning: you are leaving 1 commit behind, not connected to
+any of your branches:
+
+  543f392 v4
+
+If you want to keep it by creating a new branch, this may be a good time
+to do so with:
+
+ git branch <new-branch-name> 543f392
+
+HEAD is now at 9bdce85 v3
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo ((9bdce85...))
+
+
+
+
+
+
+
+
+
+
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo ((9bdce85...))
+$
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo ((9bdce85...))
+$ git branch
+* (HEAD detached at 9bdce85)
+  master
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo ((9bdce85...))
+$ git branch first
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo ((9bdce85...))
+$ git branch
+* (HEAD detached at 9bdce85)
+  first
+  master
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo ((9bdce85...))
+$ git branch second
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo ((9bdce85...))
+$ git branch
+* (HEAD detached at 9bdce85)
+  first
+  master
+  second
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo ((9bdce85...))
+$ git checkout master
+Switched to branch 'master'
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git branch
+  first
+* master
+  second
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git checkout first
+Switched to branch 'first'
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (first)
+$ git branch
+* first
+  master
+  second
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (first)
+$ git status
+On branch first
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        laxman.css
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (first)
+$ git add .
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (first)
+$ git commit -m "V4"
+[first 2e96375] V4
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 laxman.css
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (first)
+$ git checkout master
+Switched to branch 'master'
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git checkout first
+Switched to branch 'first'
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (first)
+$ git checkout second
+error: Your local changes to the following files would be overwritten by checkout:
+        laxman.css
+Please commit your changes or stash them before you switch branches.
+Aborting
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (first)
+$ git add .
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (first)
+$ git commit -m "V4"
+[first 4efeda6] V4
+ 1 file changed, 4 insertions(+)
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (first)
+$ git checkout second
+Switched to branch 'second'
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (second)
+$ git add .
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (second)
+$ commit -m "V4"
+bash: commit: command not found
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (second)
+$ git commit -m "V4"
+[second 439dd16] V4
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 lax.js
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (second)
+$ git checkout master
+Switched to branch 'master'
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git log --oneline
+9bdce85 (HEAD -> master) v3
+28d45c3 v2
+295e28b Adding files for first time
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git checkout first
+Switched to branch 'first'
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (first)
+$ git log --oneline
+4efeda6 (HEAD -> first) V4
+2e96375 V4
+9bdce85 (master) v3
+28d45c3 v2
+295e28b Adding files for first time
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (first)
+$ git checkout second
+Switched to branch 'second'
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (second)
+$ git log --oneline
+439dd16 (HEAD -> second) V4
+9bdce85 (master) v3
+28d45c3 v2
+295e28b Adding files for first time
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (second)
+$ git branch lokesh
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (second)
+$ git checkout lokesh
+Switched to branch 'lokesh'
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (lokesh)
+$ git log --oneline
+439dd16 (HEAD -> lokesh, second) V4
+9bdce85 (master) v3
+28d45c3 v2
+295e28b Adding files for first time
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (lokesh)
+$ git checkout master'
+> ^C
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (lokesh)
+$ git checkout master
+Switched to branch 'master'
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ switch to branch lokesh
+bash: switch: command not found
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git switch branch lokesh
+fatal: only one reference expected
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git log --oneline
+9bdce85 (HEAD -> master) v3
+28d45c3 v2
+295e28b Adding files for first time
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git checkout lokesh
+Switched to branch 'lokesh'
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (lokesh)
+$ git log --oneline
+439dd16 (HEAD -> lokesh, second) V4
+9bdce85 (master) v3
+28d45c3 v2
+295e28b Adding files for first time
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (lokesh)
+$ git checkout laxman
+error: pathspec 'laxman' did not match any file(s) known to git
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (lokesh)
+$ git branch laxman
+
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (lokesh)
+$
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (lokesh)
+$ git log --oneline
+439dd16 (HEAD -> lokesh, second, laxman) V4
+9bdce85 (master) v3
+28d45c3 v2
+295e28b Adding files for first time
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (lokesh)
+$ git checkout laxman
+Switched to branch 'laxman'
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (laxman)
+$ git checkout master
+Switched to branch 'master'
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git checkout laxman
+Switched to branch 'laxman'
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (laxman)
+$ git log --oneline
+439dd16 (HEAD -> laxman, second, lokesh) V4
+9bdce85 (master) v3
+28d45c3 v2
+295e28b Adding files for first time
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (laxman)
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (laxman)
+$ git checkout master
+Switched to branch 'master'
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git branch test-parent\
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git branch test-parent
+fatal: a branch named 'test-parent' already exists
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git checkout test-parent
+Switched to branch 'test-parent'
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (test-parent)
+$ git add .
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (test-parent)
+$ git commit v
+error: pathspec 'v' did not match any file(s) known to git
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (test-parent)
+$ git commit -m "v4"
+[test-parent 0fb7012] v4
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 laxman.css
+ create mode 100644 laxman.js
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (test-parent)
+$ git checkout master
+Switched to branch 'master'
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git checkout test-parent
+Switched to branch 'test-parent'
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (test-parent)
+$ git create test-child
+git: 'create' is not a git command. See 'git --help'.
+
+The most similar command is
+        reset
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (test-parent)
+$ git branch test-child
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (test-parent)
+$ git checkout test-child
+Switched to branch 'test-child'
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (test-child)
+$ git add .
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (test-child)
+$ git commit -m "v6"
+[test-child d781035] v6
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test-child.js
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (test-child)
+$ git checkout master
+Switched to branch 'master'
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git checkout test-parent
+Switched to branch 'test-parent'
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (test-parent)
+$ git checkout test-child
+Switched to branch 'test-child'
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (test-child)
+$ git checkout test-parent
+Switched to branch 'test-parent'
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (test-parent)
+$ git checkout test-child
+Switched to branch 'test-child'
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (test-child)
+$ git checkout test-parent
+Switched to branch 'test-parent'
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (test-parent)
+$ git merge test-child
+Updating 0fb7012..d781035
+Fast-forward
+ test-child.js | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test-child.js
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (test-parent)
+$ git checkout master
+Switched to branch 'master'
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git merge test-parent
+Updating 9bdce85..d781035
+Fast-forward
+ laxman.css    | 0
+ laxman.js     | 0
+ test-child.js | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 laxman.css
+ create mode 100644 laxman.js
+ create mode 100644 test-child.js
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git branch -d test-parent
+Deleted branch test-parent (was d781035).
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git branches
+git: 'branches' is not a git command. See 'git --help'.
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git branche
+git: 'branche' is not a git command. See 'git --help'.
+
+The most similar command is
+        branch
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git branch
+  first
+  laxman
+  lokesh
+* master
+  second
+  test-child
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git branch -d laxman
+error: The branch 'laxman' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D laxman'.
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git branch -D laxman
+Deleted branch laxman (was 439dd16).
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git branch -D lokesh
+Deleted branch lokesh (was 439dd16).
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git branch -D second
+Deleted branch second (was 439dd16).
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git branch -D first
+Deleted branch first (was 4efeda6).
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git branch
+* master
+  test-child
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git branch -D test-child
+Deleted branch test-child (was d781035).
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git branch test1
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git branch test2
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (master)
+$ git checkout test1
+Switched to branch 'test1'
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (test1)
+$ git add .
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (test1)
+$ git commit -m "test1"
+[test1 4c1add9] test1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 1.js
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (test1)
+$ git checkout test2
+Switched to branch 'test2'
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (test2)
+$ git add .
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (test2)
+$ git commit -m "Test 2"
+[test2 7cbc962] Test 2
+ 1 file changed, 1 insertion(+)
+ create mode 100644 1.js
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (test2)
+$ git checkout test1
+Switched to branch 'test1'
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (test1)
+$ git checkout test2
+Switched to branch 'test2'
+
+laxma@LAXMAN MINGW64 ~/onedrive/documents/git-demo (test2)
+$
+
+
+crate new repository .
+master branch - create html file,make three commits
+create 3 feature branches for master , in f1 create style.css , in f2 crate test.js, in f3 style.css
+create a branch for f1 named f1a and create index.js file .
+Merge f1a with f1 
+Merge f1,f2,f3 with master and resolve conflicts
+

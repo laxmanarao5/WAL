@@ -1,0 +1,71 @@
+GET http://localhost/laxman
+
+
+###   
+
+
+GET http://localhost/user/users
+
+###   
+GET http://localhost/user/user/lakshmana5296@gmail.com
+ 
+
+###   
+GET http://localhost/user/user/email/lakshmana5296@gmail.com/username/laxman
+###
+
+POST http://localhost/user/create-user
+Content-Type: application/json
+
+{
+    "username":"S170116",
+    "email":"s170116@gmail.com",
+    "age":20
+}
+
+###
+
+POST http://localhost/user/create-user
+Content-Type: application/json
+
+{
+    "username":"S170113",
+    "email":"s170113@gmail.com",
+    "age":20
+}
+
+###   
+
+
+
+PUT http://localhost/user/modify-user
+Content-Type: application/json
+
+{
+    "username":"laxmana rao",
+    "email":"lakshmana5296@gmail.com",
+    "age":20
+}
+
+
+###
+
+DELETE http://localhost/user/delete/s170116@gmail.com
+
+###
+
+
+
+
+
+
+
+# Working on Products
+
+###
+GET http://localhost/product/products
+
+
+###
+
+GET http://localhost/product/add-products

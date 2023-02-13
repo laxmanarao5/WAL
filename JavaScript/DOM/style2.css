@@ -1,0 +1,36 @@
+h1{
+    display: block;
+    text-align: center;
+}
+.container
+{
+    text-align: center ;
+}
+.btn
+{
+    padding: 20px 20px;
+    color: #fff;
+    background-color: blueviolet;
+}
+table{
+
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+thead{
+    border: solid 2px;
+    background-color: rgb(26, 54, 236);
+}
+th,table,td{
+    border:1px solid;
+    border-collapse: collapse;
+    padding: 20px 20px 20px 20px;
+}
+tr:nth-child(even)
+{
+    background-color: #8a6a6a;
+}
+tr:hover{
+    background-color: rgb(234, 157, 43);
+}

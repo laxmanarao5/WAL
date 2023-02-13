@@ -1,0 +1,50 @@
+body{
+    background-color: rgb(158, 162, 164);
+}
+.heading
+{
+    display: flex;
+}
+.page
+{
+    padding-left: 100px;
+}
+.total{
+    padding-left: 500px;
+
+}
+.perPage
+{
+    padding-left: 500px;
+
+}
+.card
+{
+    width: 230px;
+    height: 300px;
+    padding-top: 30px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    text-align: center;
+}
+.image
+{
+    border-radius: 80px;
+    height: 150px;
+    width: 150px;
+}
+.container
+{
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+.btn
+{
+    padding: 20px 40px;
+    color: #edeaf3;
+    background-color: rgb(23, 2, 79); 
+    cursor: pointer;
+    
+}

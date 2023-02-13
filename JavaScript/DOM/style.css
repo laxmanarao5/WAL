@@ -1,0 +1,68 @@
+
+.heading{
+    padding-top: 2rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+
+}
+.heading1{
+    width: 80%;
+    height: 20%;
+    
+
+}
+.first
+{
+    padding-left: 5rem;
+    padding-right: 5rem;
+    height: 18rem;
+    
+}
+.second
+{
+    padding-left: 5rem;
+    padding-right: 5rem;
+    height: 18rem;
+
+}
+.text
+{
+    padding-left: 3rem;
+    padding-right: 3rem;
+    font-size: 1.5rem;
+
+}
+.text-second
+{
+    padding-left: 3rem;
+    padding-right: 3rem;
+    font-size: 1.5rem;
+    background-color: rgb(40, 86, 192);
+    height: 15rem;
+}
+.light-theme
+{
+    background-color: white;
+    border: none;
+    float: right;
+}
+.dark-theme
+{
+    background-color: #000;
+    color: #fff;
+    float: right;
+}
+.text2
+{
+    padding-top: 2rem;
+}
+.btn
+{
+    width: 4rem;
+    height:2rem;
+}
+@media(max-width:700px)
+{
+    
+}
