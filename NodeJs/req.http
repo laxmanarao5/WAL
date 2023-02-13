@@ -63,9 +63,40 @@ DELETE http://localhost/user/delete/s170116@gmail.com
 # Working on Products
 
 ###
-GET http://localhost/product/products
+#get all products
+GET http://localhost/products/products
+
+
+###
+#get products by product id
+GET http://localhost/products/product/2
 
 
 ###
 
-GET http://localhost/product/add-products
+# Add products
+POST http://localhost/products/addProduct
+Content-Type: application/json
+
+{
+        "productId":3,
+        "productName":"Iphone 14",
+        "brand":"Apple"
+}
+
+###
+
+#modify product
+PUT http://localhost/products/modify-product
+Content-Type: application/json
+
+{
+    "productId":1,
+    "productName":"Galaxy s23 ultra",
+    "brand":"Samsung"
+}
+
+###
+
+#Delete product by id
+DELETE http://localhost/products/delete/2

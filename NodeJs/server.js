@@ -10,33 +10,25 @@ app.listen(80,()=>{
 })
 
 
-
-
 // Working with USER_API
 
 //import API
-const userApp=require("./APIs/userApi.js")
+const userApp=require("./routes/users.routes")
 
 //Routing to API with common path 
 app.use("/user",userApp)
 
 
-
-
 //Working with products API
 
 //import products API
-const productApp=require("./APIs/productApi")
+const productApp=require("./routes/products.routes")
 
 //Routing products API
-app.use("/product",productApp)
-
-
-
+app.use("/products",productApp)
 
 
 // Working with common Middlewares 
-
 
 //Handle invalid path   it should be at last of file
 app.use("*",(req,res,next)=>{
@@ -46,4 +38,3 @@ app.use("*",(req,res,next)=>{
 app.use((err,req,res,next)=>{
     res.send({message:"Error occured",error:err.message})
 })
-
