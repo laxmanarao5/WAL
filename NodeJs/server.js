@@ -1,13 +1,32 @@
 // Creating a Server
 
+
+require("dotenv").config()
 //import express module
 const express=require("express")  
 //create a variable store express function
 const app=express()
 //Assign port
-app.listen(80,()=>{
-    console.log("Listening to port 80")
+let port=process.env.PORT||80
+app.listen(port,()=>{
+    console.log(`Listening to port ${port}`)
 })
+
+
+//Connecting to database by importing connection file
+const connection=require("./database/db.config")
+
+connection.connect((err)=>{
+    if(err)
+    {
+        console.log("Connection failed ",err)
+    }
+    else
+    {
+        console.log("Connection to Database success")
+    }
+})
+
 
 
 // Working with USER_API
@@ -30,10 +49,10 @@ app.use("/products",productApp)
 
 
 
-// //Stoping server
-// app.get("/stopServer",()=>{
-//     app.exit()
-// })
+//Stoping server
+app.get("/stopServer",()=>{
+    process.exit()
+})
 
 // Working with common Middlewares 
 
