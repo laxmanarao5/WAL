@@ -68,10 +68,7 @@ DELETE http://localhost/user/delete/512
 
 # Working on Products
 
-###
 
-#get all products
-GET http://localhost/stopServer
 ###
 
 #get all products
@@ -92,7 +89,9 @@ Content-Type: application/json
 {
         "productId":3,
         "productName":"Iphone 14",
-        "brand":"Apple"
+        "brand":"Apple",
+        "productPrice":125000,
+        "dateOfMan":"2022-11-01"
 }
 
 ###
@@ -103,7 +102,9 @@ Content-Type: application/json
 {
         "productId":4,
         "productName":"Samsung galaxy s23",
-        "brand":"samsung"
+        "brand":"samsung",
+        "productPrice":125000,
+        "dateOfMan":"2023-02-01"
 }
 
 ###
@@ -115,10 +116,16 @@ Content-Type: application/json
 {
     "productId":4,
     "productName":"Galaxy s23 ultra",
-    "brand":"Samsung"
+    "brand":"Samsung",
+    "productPrice":125000,
+    "dateOfMan":"2023-02-01"
 }
 
 ###
 
 #Delete product by id
 DELETE http://localhost/products/delete/3
+
+
+
+###

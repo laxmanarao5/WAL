@@ -37,12 +37,13 @@ const getProductsById=(req,res)=>{
 
 //add product
 const addProduct=(req,res)=>{
-    let {productId,productName,brand}=req.body
-    connection.query("INSERT INTO products SET product_id=?,product_name=?,brand=?",[productId,productName,brand],(err,result)=>{
+    let {productId,productName,brand,productPrice,dateOfMan}=req.body
+    console.log(dateOfMan)
+    connection.query("INSERT INTO products SET product_id=?,product_name=?,brand=?,product_price=?,date_of_man=?",[productId,productName,brand,productPrice,dateOfMan],(err,result)=>{
         if(err)
         {
             console.log("Error : ",err)
-            res.send({message:"Error while inserting data"})
+            res.send({message:"Error while inserting data, as duplicate product id found"})
         }
         else
         {
@@ -53,8 +54,8 @@ const addProduct=(req,res)=>{
 
 //modify product info
 const modifyProduct=(req,res)=>{
-    let {productId,productName,brand}=req.body
-    connection.query("UPDATE products SET product_id=?,product_name=?,brand=? WHERE product_id=?",[productId,productName,brand,productId],(err,result)=>{
+    let {productId,productName,brand,productPrice,dateOfMan}=req.body
+    connection.query("UPDATE products SET product_id=?,product_name=?,brand=?,product_price=?,date_of_man=? WHERE product_id=?",[productId,productName,brand,productPrice,dateOfMan,productId],(err,result)=>{
         if(err)
         {
             console.log("Error : ",err)
