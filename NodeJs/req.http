@@ -7,7 +7,7 @@ GET http://localhost/laxman
 GET http://localhost/user/users
 
 ###   
-GET http://localhost/user/user/lakshmana5296@gmail.com
+GET http://localhost/user/user/580
  
 
 ###   
@@ -18,9 +18,11 @@ POST http://localhost/user/create-user
 Content-Type: application/json
 
 {
-    "username":"S170116",
-    "email":"s170116@gmail.com",
-    "age":20
+    "emp_id":"511",
+    "emp_name":"deepthi",
+    "emp_city":"Hyd",
+    "emp_designation":"Associate software developer",
+    "emp_age":21
 }
 
 ###
@@ -29,9 +31,11 @@ POST http://localhost/user/create-user
 Content-Type: application/json
 
 {
-    "username":"S170113",
-    "email":"s170113@gmail.com",
-    "age":20
+    "emp_id":"512",
+    "emp_name":"laxmana rao",
+    "emp_city":"Hyd",
+    "emp_designation":"Associate software developer",
+    "emp_age":20
 }
 
 ###   
@@ -42,15 +46,17 @@ PUT http://localhost/user/modify-user
 Content-Type: application/json
 
 {
-    "username":"laxmana rao",
-    "email":"lakshmana5296@gmail.com",
-    "age":20
+    "emp_id":"512",
+    "emp_name":"Boddepalli laxmana rao",
+    "emp_city":"Hyd",
+    "emp_designation":"Associate software developer",
+    "emp_age":20
 }
 
 
 ###
 
-DELETE http://localhost/user/delete/s170116@gmail.com
+DELETE http://localhost/user/delete/512
 
 ###
 
@@ -74,7 +80,7 @@ GET http://localhost/products/products
 
 ###
 #get products by product id
-GET http://localhost/products/product/2
+GET http://localhost/products/product/3
 
 
 ###
@@ -90,13 +96,24 @@ Content-Type: application/json
 }
 
 ###
+# Add products
+POST http://localhost/products/addProduct
+Content-Type: application/json
+
+{
+        "productId":4,
+        "productName":"Samsung galaxy s23",
+        "brand":"samsung"
+}
+
+###
 
 #modify product
 PUT http://localhost/products/modify-product
 Content-Type: application/json
 
 {
-    "productId":1,
+    "productId":4,
     "productName":"Galaxy s23 ultra",
     "brand":"Samsung"
 }
@@ -104,4 +121,4 @@ Content-Type: application/json
 ###
 
 #Delete product by id
-DELETE http://localhost/products/delete/2
+DELETE http://localhost/products/delete/3

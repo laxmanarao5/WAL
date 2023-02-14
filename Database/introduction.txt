@@ -1,0 +1,6 @@
+//create a database
+CREATE DATABASE test;
+
+//Drop database
+DROP DATABASE test;
+

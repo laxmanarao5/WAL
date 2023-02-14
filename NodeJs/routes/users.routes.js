@@ -11,7 +11,7 @@ const {
     getUsersByEmailAndUsername,
     createUser,
     modifyUser,
-    deleteUserByEmail
+    deleteUserByEmpid
 }=require("../controllers/users.controller")
 //Create Routes(API)
 
@@ -19,7 +19,7 @@ const {
 userApp.get("/users",getAllUsers)
 
 // Route to GET user by email
-userApp.get("/user/:email",getUsersByEmail)
+userApp.get("/user/:empid",getUsersByEmail)
 
 //Get users bu email and username
 userApp.get("/user/email/:email/username/:username",getUsersByEmailAndUsername)
@@ -30,7 +30,7 @@ userApp.post("/create-user",createUser)
 userApp.put("/modify-user",modifyUser)
 
 //Delete User
-userApp.delete("/delete/:email",deleteUserByEmail)
+userApp.delete("/delete/:empid",deleteUserByEmpid)
 
 //Exporting 
 module.exports=userApp

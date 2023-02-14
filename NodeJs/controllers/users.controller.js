@@ -1,96 +1,120 @@
-//Sample data
-let users=[
-    {
-        username:"laxman",
-        email:"lakshmana5296@gmail.com",
-        age:20
-    },
-    {
-        username:"deepthi",
-        email:"deepthi@gmail.com",
-        age:21
-    }
-];
+//import connection object
+
+const connection=require("../database/db.config")
 
 //Get All Users
 const getAllUsers=(req,res)=>{ 
-    res.send({message:"users Data",payload:users}) 
+    //get data from database
+
+    //Old Approach
+    connection.query("SELECT * FROM wal_table",(err,result)=>{
+        console.log(result)
+        if(err){
+            console.log("Error fetching data",err)
+            res.send({message:err.message})
+        }
+        else{
+            res.send({message:"Data fetched sucessfully",payload:result})
+        }
+    })
+
+
+    // let result =await connection.execute("SELECT * FROM wal_table")
+    // res.send({message:"data fetched sucessfully",payload:result})
 }
 
 //Get users by email
 const getUsersByEmail=(req,res)=>{    
-    let emailFromUrl=req.params.email
-    let userInfo=users.find(userObject=>userObject.email===emailFromUrl)
-    if(userInfo==undefined)
-    {
-        res.send({message:"User not found"})
-    }
-    else{
-        res.send({message:"user found",payload:userInfo})
-    }
+    let empidFromUrl=(+req.params.empid)
+    connection.query("select * from wal_table where emp_id=?",empidFromUrl,(err,result)=>{
+        console.log(result)
+        if(err){
+            console.log("Error fetching data",err)
+            res.send({message:err.message})
+        }
+        else{
+            res.send({message:"Data fetched sucessfully",payload:result})
+        }
+    })
+    
 }
 
 //get users bu email and username
 const getUsersByEmailAndUsername=(req,res)=>{
     //
     let emailFromUrl=req.params.email;
-    let usernameFromUrl=req.params.username;
-    let userInfo=users.find(userObject=>userObject.email===emailFromUrl && userObject.username===usernameFromUrl)
-    if(userInfo==undefined)
-    {
-        res.send({message:"User not found"})
-    }
-    else{
-        res.send({message:"user found",payload:userInfo})
-    }
+    
 }
 
 //Create user
 const createUser=(req,res)=>{
-    let newuser=req.body;
-    let flag=users.find((element)=>element.username==newuser.username)
-    if(flag==undefined)
-    {
-    users.push(newuser)
-    console.log(newuser)
-    res.send({message:"New User added sucessfully"})
-    }
-    else
-    {
-        res.send({message:"User already exists"})
-    } 
+    //Insert user into database
+    let {emp_id,emp_name,emp_city,emp_designation,emp_age}=req.body
+    connection.query("INSERT INTO wal_table SET emp_id=?,emp_name=?,emp_city=?,emp_designation=?,emp_age=?",
+    [emp_id,emp_name,emp_city,emp_designation,emp_age],(err,result)=>{
+        console.log(result)
+        if(err){
+            console.log("Error fetching data",err)
+            res.send({message:err.message})
+        }
+        else{
+            res.send({message:"Data inserted sucessfully"})
+        }
+    })
+    
     
 }
 
 //Modify user
 const modifyUser=(req,res)=>{
 
-    let userInfo=req.body
-    let indexOfUser=users.findIndex((userObject)=>userObject.email===userInfo.email)
-    if(indexOfUser===-1)
-    {
-        res.send({message:"User not found"})
-    }
-    else
-    {
-        users.splice(indexOfUser,1,userInfo)
-        res.send({message:"User modified sucessfully"})
-    }
+    let {emp_id,emp_name,emp_city,emp_designation,emp_age}=req.body
+    connection.query("SELECT * FROM wal_table WHERE emp_id=?",
+    emp_id,(err,result)=>{
+        console.log(result)
+        if(err){
+            console.log("Error fetching data",err)
+            res.send({message:err.message})
+        }
+        else{
+            if(result.length==0)
+            {
+                res.send({message:"User does not exists in the database"})
+            }
+            else{
+                connection.query("UPDATE wal_table SET emp_id=?,emp_name=?,emp_city=?,emp_designation=?,emp_age=? WHERE emp_id=?",
+                [emp_id,emp_name,emp_city,emp_designation,emp_age,emp_id],(err,result)=>{
+                    console.log(result)
+                    if(err){
+                        console.log("Error fetching data",err)
+                        res.send({message:err.message})
+                    }
+                    else{
+                        res.send({message:"Data modified sucessfully"})
+                    }
+                })
+            }
+        }
+    })
+    
+    
 }
 
 //Delete user by email
-const deleteUserByEmail=(req,res)=>{
-    let userEmailFromUrl=req.params.email;
-    let indexOfUser=users.findIndex(userObject=>userObject.email===userEmailFromUrl)
-    if(indexOfUser===-1)
-    {
-        res.send({message:"User not found"})
-    }
-    else
-    {
-        users.splice(indexOfUser,1)
-        res.send({message:"User Deleted sucessfully"})
-    }
+const deleteUserByEmpid=(req,res)=>{
+    
+    let empidFromUrl=(+req.params.empid);
+    connection.query("DELETE FROM wal_table WHERE emp_id=?",empidFromUrl,(err,result)=>{
+        console.log(result)
+        if(err){
+            console.log("Error fetching data",err)
+            res.send({message:err.message})
+        }
+        else{
+            res.send({message:"Data deleted sucessfully",payload:result})
+        }
+    })
+   
 }
 
 module.exports={
@@ -99,5 +123,5 @@ module.exports={
     getUsersByEmailAndUsername,
     createUser,
     modifyUser,
-    deleteUserByEmail
+    deleteUserByEmpid
 }
