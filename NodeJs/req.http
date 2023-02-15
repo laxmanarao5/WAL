@@ -1,14 +1,7 @@
-GET http://localhost/laxman
-
-
-###   
-
-
 GET http://localhost/user/users
 
 ###   
-GET http://localhost/user/user/580
- 
+GET http://localhost/user/user/511
 
 ###   
 GET http://localhost/user/user/email/lakshmana5296@gmail.com/username/laxman
@@ -31,7 +24,7 @@ POST http://localhost/user/create-user
 Content-Type: application/json
 
 {
-    "emp_id":"512",
+    "emp_id":"516",
     "emp_name":"laxmana rao",
     "emp_city":"Hyd",
     "emp_designation":"Associate software developer",
@@ -39,8 +32,6 @@ Content-Type: application/json
 }
 
 ###   
-
-
 
 PUT http://localhost/user/modify-user
 Content-Type: application/json
@@ -56,7 +47,7 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost/user/delete/512
+DELETE http://localhost/user/delete/511
 
 ###
 
@@ -124,8 +115,30 @@ Content-Type: application/json
 ###
 
 #Delete product by id
-DELETE http://localhost/products/delete/3
+DELETE http://localhost/products/delete/4
 
 
 
 ###
+
+
+
+
+
+
+#working with Projects
+
+
+
+# Get employees allocatd to an project
+GET http://localhost/projects/project-assignment-api/222
+
+
+###
+# Get projects allocatd to an employee
+GET http://localhost/projects/employee-assignment-api/3
+
+###
+
+# Employess on bench
+GET http://localhost/projects/bench

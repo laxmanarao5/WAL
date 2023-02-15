@@ -8,7 +8,6 @@ userApp.use(express.json())
 const {
     getAllUsers,
     getUsersByEmail,
-    getUsersByEmailAndUsername,
     createUser,
     modifyUser,
     deleteUserByEmpid
@@ -20,9 +19,6 @@ userApp.get("/users",getAllUsers)
 
 // Route to GET user by email
 userApp.get("/user/:empid",getUsersByEmail)
-
-//Get users bu email and username
-userApp.get("/user/email/:email/username/:username",getUsersByEmailAndUsername)
 
 // Insert data
 userApp.post("/create-user",createUser)

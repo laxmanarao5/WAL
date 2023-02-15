@@ -47,7 +47,11 @@ const productApp=require("./routes/products.routes")
 app.use("/products",productApp)
 
 
+//import projets API
+const projectApp=require("./routes/project.routes")
 
+//Routing projects API
+app.use("/projects",projectApp)
 
 //Stoping server
 app.get("/stopServer",()=>{

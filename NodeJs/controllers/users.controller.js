@@ -1,126 +1,106 @@
-//import connection object
+//import async handler
+const expressAsyncHandler=require("express-async-handler")   //module to handle async errors - it will handover async errors to error handler middleware automatically
 
+//import connection object
 const connection=require("../database/db.config")
 
+//calling promise method on connection object to make our app support promise
+const db=connection.promise()
+
+
+
+
+
+
 //Get All Users
-const getAllUsers=(req,res)=>{ 
+const getAllUsers=expressAsyncHandler(async(req,res)=>{ 
     //get data from database
-
-    //Old Approach
-    connection.query("SELECT * FROM wal_table",(err,result)=>{
-        console.log(result)
-        if(err){
-            console.log("Error fetching data",err)
-            res.send({message:err.message})
-        }
-        else{
-            res.send({message:"Data fetched sucessfully",payload:result})
-        }
-    })
+    let [result,fields]= await db.query("SELECT * FROM wal_table")  //it return a promise with array of two objects - database records and columns info
+    //send response
+    res.send({message:"Data fetched sucessfully",payload:result})
+})
 
 
-    // let result =await connection.execute("SELECT * FROM wal_table")
-    // res.send({message:"data fetched sucessfully",payload:result})
-}
 
-//Get users by email
-const getUsersByEmail=(req,res)=>{    
+
+//Get users by empid
+const getUsersByEmail=expressAsyncHandler(async(req,res)=>{  
+    //Get parameter from URL  
     let empidFromUrl=(+req.params.empid)
-    connection.query("select * from wal_table where emp_id=?",empidFromUrl,(err,result)=>{
-        console.log(result)
-        if(err){
-            console.log("Error fetching data",err)
-            res.send({message:err.message})
-        }
-        else{
-            res.send({message:"Data fetched sucessfully",payload:result})
-        }
+    //Fetch data from database
+    let [result,fiels]=await db.query("select * from wal_table where emp_id=?",empidFromUrl)
+    //send response
+    res.send({message:"Data fetched sucessfully",payload:result})
     })
-    
-}
 
-//get users bu email and username
-const getUsersByEmailAndUsername=(req,res)=>{
-    //
-    let emailFromUrl=req.params.email;
-    
-}
+
+
 
 //Create user
-const createUser=(req,res)=>{
-    //Insert user into database
+const createUser=expressAsyncHandler(async(req,res)=>{
+    //Unpacking data received from body of POST request
     let {emp_id,emp_name,emp_city,emp_designation,emp_age}=req.body
-    connection.query("INSERT INTO wal_table SET emp_id=?,emp_name=?,emp_city=?,emp_designation=?,emp_age=?",
-    [emp_id,emp_name,emp_city,emp_designation,emp_age],(err,result)=>{
-        console.log(result)
-        if(err){
-            console.log("Error fetching data",err)
-            res.send({message:err.message})
-        }
-        else{
-            res.send({message:"Data inserted sucessfully"})
-        }
-    })
+
+    //Verifying for duplicates
+    let [duplicates]=await db.query("select * from wal_table where emp_id=?",emp_id)
+    if(duplicates[0]==undefined)
+    {
+        //Insert user into database
+        await db.query("INSERT INTO wal_table SET emp_id=?,emp_name=?,emp_city=?,emp_designation=?,emp_age=?",
+        [emp_id,emp_name,emp_city,emp_designation,emp_age])
+        //Sending response
+        res.send({message:"user inserted sucessfully"})
+    }
+    else{
+        res.send({message:"User already exists"})
+    }    
     
-    
-}
+})
+
+
 
 //Modify user
-const modifyUser=(req,res)=>{
-
+const modifyUser=expressAsyncHandler(async(req,res)=>
+{
     let {emp_id,emp_name,emp_city,emp_designation,emp_age}=req.body
-    connection.query("SELECT * FROM wal_table WHERE emp_id=?",
-    emp_id,(err,result)=>{
-        console.log(result)
-        if(err){
-            console.log("Error fetching data",err)
-            res.send({message:err.message})
-        }
-        else{
-            if(result.length==0)
-            {
-                res.send({message:"User does not exists in the database"})
-            }
-            else{
-                connection.query("UPDATE wal_table SET emp_id=?,emp_name=?,emp_city=?,emp_designation=?,emp_age=? WHERE emp_id=?",
-                [emp_id,emp_name,emp_city,emp_designation,emp_age,emp_id],(err,result)=>{
-                    console.log(result)
-                    if(err){
-                        console.log("Error fetching data",err)
-                        res.send({message:err.message})
-                    }
-                    else{
-                        res.send({message:"Data modified sucessfully"})
-                    }
-                })
-            }
-        }
-    })
+    //Verifying for duplicates
+    let [duplicates]=await db.query("select * from wal_table where emp_id=?",emp_id)
+    if(duplicates[0]==undefined)
+    {
+        res.send({message:"No user found to modify"})
+    }
+    else{
+        await db.query("UPDATE wal_table SET emp_id=?,emp_name=?,emp_city=?,emp_designation=?,emp_age=? WHERE emp_id=?",
+                [emp_id,emp_name,emp_city,emp_designation,emp_age,emp_id])
+        res.send({message:"User details modified sucessfully"})
+    }
+
+})
+
     
-    
-}
+
 
 //Delete user by email
-const deleteUserByEmpid=(req,res)=>{
-    
+const deleteUserByEmpid=expressAsyncHandler(async(req,res)=>{
     let empidFromUrl=(+req.params.empid);
-    connection.query("DELETE FROM wal_table WHERE emp_id=?",empidFromUrl,(err,result)=>{
-        console.log(result)
-        if(err){
-            console.log("Error fetching data",err)
-            res.send({message:err.message})
-        }
-        else{
-            res.send({message:"Data deleted sucessfully",payload:result})
+    let [duplicates]=await db.query("select * from wal_table where emp_id=?",empidFromUrl)
+    if(duplicates[0]==undefined)
+    {
+        res.send({message:"No user found to delete"})
+    }
+    else{
+            await db.query("DELETE FROM wal_table WHERE emp_id=?",empidFromUrl)
+            res.send({message:"User deleted sucessfully"})
         }
     })
    
-}
+
+
+
 
 module.exports={
     getAllUsers,
     getUsersByEmail,
-    getUsersByEmailAndUsername,
     createUser,
     modifyUser,
     deleteUserByEmpid
