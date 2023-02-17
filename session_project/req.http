@@ -1,0 +1,34 @@
+GET http://localhost:3000/test
+
+###
+
+POST http://localhost:3000/user/register
+Content-Type: application/json
+
+{
+    "name":"laxman",
+    "email":"lakshmana5296@gmail.com",
+    "password":"12345"
+}
+
+###
+POST http://localhost:3000/user/login
+Content-Type: application/json
+
+{
+    "email":"lakshmana5296@gmail.com",
+    "password":"12345"
+}
+
+###
+
+PUT http://localhost:3000/user/update
+Content-Type: application/json
+
+{
+    "name":"laxman",
+    "email":"lakshmana5296@gmail.com",
+    "password":"12345"
+}
+###
+GET http://localhost:3000/user/logout

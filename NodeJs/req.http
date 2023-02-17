@@ -7,31 +7,41 @@ GET http://localhost/user/user/511
 GET http://localhost/user/user/email/lakshmana5296@gmail.com/username/laxman
 ###
 
-POST http://localhost/user/create-user
+POST http://localhost/user/register-user
 Content-Type: application/json
 
 {
-    "emp_id":"511",
-    "emp_name":"deepthi",
-    "emp_city":"Hyd",
-    "emp_designation":"Associate software developer",
-    "emp_age":21
+    "username":"shameer",
+    "password":"Shameer@123",
+    "email":"Shameer@gmail.com"
 }
-
 ###
 
-POST http://localhost/user/create-user
+POST http://localhost/user/register-user
 Content-Type: application/json
 
 {
-    "emp_id":"516",
-    "emp_name":"laxmana rao",
-    "emp_city":"Hyd",
-    "emp_designation":"Associate software developer",
-    "emp_age":20
+    "username":"laxman",
+    "password":"Laxmana@123",
+    "email":"lakshmana5296@gmail.com"
 }
 
+
+
+
+###
+#Login user
+POST http://localhost/user/login-user
+Content-Type: application/json
+
+{
+    "email":"lakshmana5296@gmail.com",
+    "password":"Laxmana@123"
+}
 ###   
+GET http://localhost/user/protected
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxha3NobWFuYTUyOTZAZ21haWwuY29tIiwiaWF0IjoxNjc2NTM4NDk1LCJleHAiOjE2NzY1Mzg1NTV9.Rl6sHZmNoDt1H04zi4okTAIp1S5rHD1BSJkP0RLiVqY
+###
 
 PUT http://localhost/user/modify-user
 Content-Type: application/json
@@ -47,8 +57,8 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost/user/delete/511
-
+DELETE http://localhost/user/delete/lakshmana5296@gmail.com
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxha3NobWFuYTUyOTZAZ21haWwuY29tIiwiaWF0IjoxNjc2NTM5NTk0LCJleHAiOjE2NzY1Mzk3NzR9.Zz11WwCVnL5lqUhMyRH3urIQlLpGr_hfUwZKhCELLPQ
 ###
 
 

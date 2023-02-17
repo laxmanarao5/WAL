@@ -12,6 +12,7 @@ const db=connection.promise()
 const getAllProducts=expressAsyncHandler(async(req,res)=>{
     //fetch data from db
     let [result]=await db.query("SELECT * FROM products")
+    console.log(req.headers);
     //send response
     res.send({message:"Data fetched sucessfully",payload:result})
 })
