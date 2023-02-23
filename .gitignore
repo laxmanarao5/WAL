@@ -1,4 +1,6 @@
 NodeJs/node_modules
 NodeJs/.env
 session_project/node_modules
-CORS\node_modules
+CORS/node_modules
+ORM-tool/node_modules
+portfolio/node_modules

@@ -8,25 +8,6 @@ const db=connection.promise()
 const bcryptjs= require("bcryptjs")
 const userApp = require("../routes/user.route")
 
-// //import express-session
-// const session=require("express-session")
-// //import mysql driver for session store
-// const MysqlSessionStore=require("express-mysql-session")(session)
-
-// const sessionStore=new MysqlSessionStore({},connection.promise())  //MysqlSessionStore expect connection should return promise 
-
-// userApp.use(session({
-//     secret:process.env.SECRET_KEY,
-//     saveUninitialized:false,    //if it is true a new record will be crreated upon calling even session is not set with user info
-//     resave:false,  //target environment support linux command touch
-//     store:sessionStore,
-//     cookie:{
-//         maxAge:100000
-//     }
-// }))
-
-
-
 
 //Registration
 

@@ -33,4 +33,6 @@ app.get("/test",(req,res)=>{
     req.headers.cookie==undefined?res.send({message:"unauthorised access"}):req.session.user!=undefined?res.send({message:req.session.user}):res.send({message:"relogin"})
 })
 
-
+app.get("/index",(req,res)=>{
+    res.sendFile(__dirname+"/views/index.html")
+})

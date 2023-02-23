@@ -1,0 +1,43 @@
+POST http://localhost/create-customer
+Content-Type: application/json
+
+{
+    "customer_id":"700",
+    "customer_name":"Laxmana rao",
+    "age":21
+}
+
+
+####
+
+GET http://localhost/get-customers
+
+
+###
+
+GET http://localhost/customer/600
+
+###
+
+GET http://localhost/customer/name/Laxmana rao
+
+###
+
+GET http://localhost/customer/age/20
+
+
+###
+
+PUT http://localhost/update
+Content-Type: application/json
+
+{
+    "customer_id":"700",
+    "customer_name":" B Laxmana rao",
+    "age":20
+}
+
+
+###
+
+DELETE http://localhost/delete/700
