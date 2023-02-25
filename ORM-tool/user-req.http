@@ -1,0 +1,16 @@
+POST http://localhost/add-user
+Content-Type: application/json
+
+{
+    "firstname":"lax",
+    "lastname":"boddepalli",
+    "email":"lakagmail.com",
+    "password":"laxmana4321",
+    "age":23,
+    "gender":"Female"
+}
+
+
+###
+
+GET http://localhost/users

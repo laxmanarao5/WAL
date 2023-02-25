@@ -1,0 +1,139 @@
+POST http://localhost/add-emp
+Content-Type: application/json
+
+{
+    "emp_id":100,
+    "emp_name":"laxman",
+    "job":{
+        "job_id":1000,
+        "job_desc":"DevOps"
+    } 
+}
+
+###
+POST http://localhost/add-job
+Content-Type: application/json
+
+{
+    "job_id":10000,
+    "job_desc":"DevOps"
+}
+
+###
+
+GET http://localhost/emps
+
+
+###
+
+POST http://localhost/add-customer
+Content-Type: application/json
+
+{
+    "cust_id":100,
+    "cust_name":"laxman",
+    "accounts":[
+        {
+            "bank_name":"SBI",
+            "account_number":"123456"
+        },
+        {
+            "bank_name":"HDFC",
+            "account_number":"654321"
+        },
+        {
+            "bank_name":"ICICI",
+            "account_number":"836702"
+        },
+        {
+            "bank_name":"Paytm",
+            "account_number":"918367027220"
+        }
+    ]
+}
+
+###
+
+POST http://localhost/add-customer
+Content-Type: application/json
+
+{
+    "cust_id":200,
+    "cust_name":"Lokesh",
+    "accounts":[
+        {
+            "bank_name":"UNION",
+            "account_number":"123456"
+        },
+        {
+            "bank_name":"PAYTM",
+            "account_number":"654321"
+        }
+    ]
+}
+
+###
+GET http://localhost/customers/
+
+###
+GET http://localhost/user_info
+
+
+###
+
+
+POST http://192.168.26.98:4000/create-user
+Content-Type: application/json
+
+{   "user_id":300,
+    "user_name":"laxmanarao",
+    "address":{
+        "street":"kphb",
+        "city":"hyderabad", 
+        "contactdetail":{
+            "mobile":8367027220,
+            "landline":9052083710
+        }
+    },
+    "skills":[
+        {
+            "skill_id":5,
+            "skill_name":"react"
+        },
+        {
+            "skill_id":6,
+            "skill_name":"angular"
+        }
+    ]
+}
+
+###
+
+POST http://localhost/create-user
+Content-Type: application/json
+
+{    "user_id":100,
+    "user_name":"laxman",
+    "address":{
+        "street":"kphb",
+        "city":"hyderabad",
+        "contact":{
+            "mobile":8367027220,
+            "telephone":9052083710
+        }
+    },
+    "skills":[
+        {
+            "skill_id":1,
+            "skill_name":"react"
+        },
+        {
+            "skill_id":2,
+            "skill_name":"angular"
+        }
+    ]
+}
+
+###
+
+GET http://localhost/user_info/all

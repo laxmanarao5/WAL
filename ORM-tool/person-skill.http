@@ -1,0 +1,25 @@
+POST http://localhost/person
+Content-Type: application/json
+
+{
+    "person_id":800,
+    "person_name":"lax"
+}
+
+###
+
+GET http://localhost/peoples
+
+###
+POST http://localhost/skill
+Content-Type: application/json
+
+{
+    "person_id":900,
+    "skill_id":1000002,
+    "skill":"javascript"
+
+}
+###
+
+GET http://localhost/skills

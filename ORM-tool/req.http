@@ -2,15 +2,21 @@ POST http://localhost/create-customer
 Content-Type: application/json
 
 {
-    "customer_id":"700",
-    "customer_name":"Laxmana rao",
-    "age":21
+    "customer_id":800,
+    "customer_name":"lax",
+    "age":40,
+    "email":"lakshman@gmail.com",
+    "password":"laxman1234"
 }
 
 
 ####
 
 GET http://localhost/get-customers
+
+####
+
+GET http://localhost/get-customersexcept
 
 
 ###
