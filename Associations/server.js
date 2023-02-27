@@ -31,8 +31,6 @@ sequelize.authenticate()
 
 const {Emp}=require("./models/emp.model")
 const {Job}=require("./models/job.model")
-const {Customers}=require("./models/customer.model")
-const {Accounts}=require("./models/accounts.model")
 
 
 
@@ -40,8 +38,14 @@ const {Accounts}=require("./models/accounts.model")
 
 
 
-
+//will create tables for all models
 sequelize.sync({force:true})
+
+
+
+//One to One association
+
+
 //Establish relationship between tables 
 Emp.Job=Emp.hasOne(Job,{foreignKey:{name:"emp_id",allowNull:false}})     //create foreign key in target
 //Job.belongsTo(Emp,{foreignKey:{name:"emp_id"}})
@@ -107,6 +111,13 @@ app.get('/emps',expressAsyncHandler(async(req,res)=>{
 
 
 
+
+
+// One to One Association
+
+const {Customers}=require("./models/customer.model")
+const {Accounts}=require("./models/accounts.model")
+
 Customers.Accounts=Customers.hasMany(Accounts,{foreignKey:{name:"cust_id"}})     //create foreign key in target
 //Job.belongsTo(Emp,{foreignKey:{name:"emp_id"}})
 
@@ -141,7 +152,7 @@ app.get("/customers",expressAsyncHandler(async(req,res)=>{
 
 
 
-
+//One to Many Association
 
 
 const {User}=require("./models/user.model")
@@ -164,11 +175,7 @@ app.post("/create-user",expressAsyncHandler(async(req,res)=>{
         include:[
             {
                 association:User.Address,
-                include:[
-                    {
-                        association:Address.Contact
-                    }
-                ]
+                include:[{association:Address.Contact}]
             },
             {
                 association:User.Skills
