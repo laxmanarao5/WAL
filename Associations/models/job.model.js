@@ -8,8 +8,7 @@ exports.Job=sequelize.define("job",{
         primaryKey:true
     },
     job_desc:{
-        type:DataTypes.STRING,
-        allowNull:false
+        type:DataTypes.STRING
     }
     
 },

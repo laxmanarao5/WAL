@@ -58,7 +58,7 @@ app.post("/add-emp",expressAsyncHandler(async(req,res)=>{
     // let emp= await Emp.create({emp_id:emp_id,emp_name:emp_name})
 
     // let job=await Job.create({job_id:job_id,job_desc:job_desc})
-
+    // console.log(emp)
     // emp.setJob(job)
     // res.send({message:"Employee added"})
 

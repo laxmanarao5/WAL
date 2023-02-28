@@ -1,0 +1,76 @@
+GET http://localhost/student-api/test
+
+### Add student
+
+POST http://localhost/student-api/student
+Content-Type: application/json
+
+{
+    "name":"laaxmjhgan",
+    "date_of_birth":"2002-05-28",
+    "email":"lokeah9dfj6@gmail.com"
+}
+
+###
+
+POST http://localhost/student-api/student/3/address
+Content-Type: application/json
+
+{
+    "street":"main street",
+    "city":"chennai"
+}
+
+###
+
+POST http://localhost/student-api/student/sem-marks
+Content-Type: application/json
+
+{
+    "roll_no":100,
+    "semester":1,
+    "maths":10,
+    "physics":20,
+    "chemistry":12
+}
+
+###
+
+GET http://localhost/student-api/students
+
+
+###
+###
+
+GET http://localhost/student-api/student/3
+
+
+###
+PUT http://localhost/student-api/student/2/new-address
+Content-Type: application/json
+
+{
+    "street":"main street",
+    "city":"bangalore"
+}
+
+
+###
+
+PUT http://localhost/student-api/student/semester/new-marks
+Content-Type: application/json
+
+{
+    "roll_no":1,
+    "semester":1,
+    "maths":43,
+    "physics":59,
+    "chemistry":44
+}
+###
+
+DELETE http://localhost:/student-api/student/1
+
+###
+
+GET http://localhost/student-api/students-with-aggregate
