@@ -59,8 +59,9 @@ const modifyUser=async(req,res)=>{
 
 //logout
 const logout=(req,res)=>{
-    req.session.destroy()
+    req.session.destroy(()=>{
     res.send({message:"Logout sucessfull"})
+    })
 }
 
 module.exports={registerUser,login,modifyUser,logout}

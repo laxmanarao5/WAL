@@ -1,0 +1,25 @@
+{
+  "name": "session-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-session-sequelize": "^7.1.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "express-mysql-session": "^2.1.8",
+    "express-session": "^1.17.3",
+    "express-session-sequelize": "^2.3.0",
+    "express-sessions": "^1.0.6",
+    "mysql2": "^3.1.2",
+    "sequelize": "^6.29.0"
+  }
+}

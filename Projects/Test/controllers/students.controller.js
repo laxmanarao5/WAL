@@ -4,9 +4,6 @@ const {sequelize}=require("../database/db.config")
 //import express async handler to handle async erros
 const expressAsyncHandler=require("express-async-handler")
 
-//import connection to run query
-const {connection}=require("../database/db.config")
-
 //import Models
 const {Student}=require("../database/models/student.model")
 const {Address}=require("../database/models/address.model")
@@ -104,18 +101,12 @@ exports.getStudentsByRollNo=expressAsyncHandler(async(req,res)=>{
 
 //Aggregation of Marks
 exports.getAggregate=expressAsyncHandler(async(req,res)=>{
-    connection.query("select roll_no, avg((maths+physics+chemistry)/3) as Average from semestermarks where roll_no=(select roll_no from student where status=true) group by roll_no"
-    ,(err,result)=>{
-        console.log(result)
-        if(err){
-            console.log("Error fetching data",err)
-            res.send({message:err.message})
-        }
-        else{
-            res.send({message:"Aggregate of Marks",payload:result})
-        }
+    const result=await sequelize.query(
+        "select roll_no, avg((maths+physics+chemistry)/3) as Average from semestermarks where roll_no in(select roll_no from student where status=true) group by roll_no",
+    {
+        type:sequelize.QueryTypes.SELECT
     })
-    
+    res.send({message:"Aggregate of Marks",payload:result})
 
 })
 

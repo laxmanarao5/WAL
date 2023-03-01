@@ -1,0 +1,12 @@
+POST http://localhost/user
+Content-Type: application/json
+
+{
+      "name":"lokesh",
+      "email":"laxmffan@gmail.com",
+      "mobile":8367027220
+}
+
+###
+
+GET http://localhost/students

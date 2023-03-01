@@ -1,0 +1,39 @@
+GET http://localhost/user-api/test
+
+### registration
+POST http://localhost/user-api/register
+Content-Type: application/json
+
+{
+    "name":"laxman",
+    "age":20,
+    "email":"lakshmana5296@gmail.com",
+    "password":"laxmana@123"
+}
+
+### Login
+POST http://localhost/user-api/login
+Content-Type: application/json
+
+{
+    "email":"lakshmana5296@gmail.com",
+    "password":"laxmana@123"
+}
+
+### modify user
+PUT http://localhost/user-api/user
+Content-Type: application/json
+
+{
+    "name":"laxman",
+    "age":20,
+    "email":"lakshmana5296@gmail.com",
+    "password":"laxmana@123"
+}
+
+
+### logout
+GET http://localhost/user-api/logout
+
+### get users
+GET http://localhost/user-api/users
