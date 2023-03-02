@@ -1,0 +1,36 @@
+GET http://localhost/customer-api/test
+
+
+### Create account
+POST http://localhost/customer-api/account
+Content-Type: application/json
+
+{
+    "customer_name":"laxman",
+    "account_type":"savings",
+    "mobile":8367027220
+}
+
+### Deposit
+PUT http://localhost/customer-api/deposit/account/1000
+Content-Type: application/json
+
+{
+    "amount":10000
+}
+
+### Withdraw
+PUT http://localhost/customer-api/withdraw/account/1000
+Content-Type: application/json
+
+{
+    "amount":10000
+}
+
+### Money transfer
+PUT http://localhost/customer-api/transfer/from/1000/to/1001
+Content-Type: application/json
+
+{
+    "amount":1000
+}
